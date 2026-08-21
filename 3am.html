@@ -1,26 +1,92 @@
 <!DOCTYPE html>
 <html>
-</style>
+<head>
+    <meta charset="UTF-8">
     <title>3am</title>
-</head>
-<body>
-     <style>
+    <style>
+        /* Base page styling */
         body {
             background-color: #000000;
             color: #fdfafa;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* --- VHS EFFECT STYLES --- */
+
+        /* Scanlines Overlay */
+        .vhs-overlay::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 999;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        /* Grainy Noise Overlay */
+        .vhs-overlay::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: -50%; left: -50%; right: -50%; bottom: -50%;
+            width: 200%;
+            height: 200%;
+            background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat;
+            opacity: 0.15;
+            z-index: 1000;
+            pointer-events: none;
+            animation: grainy 0.2s steps(4) infinite;
+        }
+
+        /* Grain Animation */
+        @keyframes grainy {
+            0% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -5%); }
+            20% { transform: translate(-10%, 5%); }
+            30% { transform: translate(5%, -10%); }
+            40% { transform: translate(-5%, 15%); }
+            50% { transform: translate(-15%, -5%); }
+            60% { transform: translate(15%, 0%); }
+            70% { transform: translate(0%, 15%); }
+            80% { transform: translate(3%, 35%); }
+            90% { transform: translate(-10%, 10%); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* text glitch/glow */
+        .glitch-text {
+            text-shadow: 2px 2px #ff0000, -2px -2px #00ffff;
         }
     </style>
-     <p style="margin-top:200px; color:rgb(200, 5, 5);font-size: 100px; font-family: Courier New; text-align: center;">3am</p>
-    <p style="margin-left: 10px; margin-top:400px; font-size: 30px; font-family: Courier New; text-align: left;">Its 3am and you are alone in your room. Your keyboard glows with rgb your fingers typing at an insane speed, you are trying to fix your website before its too late. Then suddenly the terminal opens.</p>
-    </style>
-   <img src="https://i.imgpeek.com/FMwk6IkrpMp6" style="margin-left: 400px; margin-top: 100px;" width="500" height="300" alt="Terminal" class="terminal-img">
-    <p style="margin-left: 10px; margin-top:100px; font-size: 30px; font-family: Courier New; text-align: left;">You check the logs...</p>
-     <p style="margin-left: 10px; margin-top:100px; font-size: 30px; font-family: Courier New; text-align: left;">Nothing, No Traces, No Evidence</p>
-     <p style="margin-left: 10px; margin-top:20px; font-size: 30px; font-family: Courier New; text-align: left;">Then an address pops up, the NDA of Japan. You decide to look into this matter</p>
-     <p style="margin-left: 10px; margin-top:20px; font-size: 30px; font-family: Courier New; text-align: left;">It turns out your friend gets the same message. After intense thinking both of you decide to go there</p>
-     <p style="margin-left: 10px; margin-top:20px; font-size: 30px; font-family: Courier New; text-align: left;">Its 4am and you have reached the cafe that was supposed to be a NDA hideout, to your surprise it was the same cafe your friend and you worked at.</p>
-     <p style="margin-left: 10px; margin-top:20px; font-size: 30px; font-family: Courier New; text-align: left;">Suddenly you see a faint figure in the distance, you hesitantly move towards it.</p>
-     <p style="margin-left: 10px; margin-top:20px; font-size: 30px; font-family: Courier New; text-align: left;">Then Suddenly!</p>
-     <p style="margin-top:300px; margin-bottom:200px; color:rgb(200, 5, 5);font-size: 100px; font-family: Courier New; text-align: center;">TO BE CONTINUED...</p>   
-    </body>
- </html>
+</head>
+<body class="vhs-overlay">
+
+    <p style="margin-top:200px; color:rgb(200, 5, 5); font-size: 100px; font-family: 'Courier New', Courier, monospace; text-align: center;" class="glitch-text">3am</p>
+    
+    <p style="margin-left: 10px; margin-top:400px; font-size: 30px; font-family: 'Courier New', Courier, monospace; text-align: left;">Its 3am and you are alone in your room. Your keyboard glows with rgb your fingers typing at an insane speed, you are trying to fix your website before its too late. Then suddenly the terminal opens.</p>
+    
+    <img src="https://i.imgpeek.com/FMwk6IkrpMp6" style="margin-left: 400px; margin-top: 100px; max-width: 100%; height: auto;" width="500" height="300" alt="Terminal" class="terminal-img">
+    
+    <p style="margin-left: 10px; margin-top:100px; font-size: 30px; font-family: 'Courier New', Courier, monospace; text-align: left;">You check the logs...</p>
+    
+    <p style="margin-left: 10px; margin-top:100px; font-size: 30px; font-family: 'Courier New', Courier, monospace; text-align: left;">Nothing, No Traces, No Evidence</p>
+    
+    <p style="margin-left: 10px; margin-top:20px; font-size: 30px; font-family: 'Courier New', Courier, monospace; text-align: left;">Then an address pops up, the NDA of Japan. You decide to look into this matter</p>
+    
+    <p style="margin-left: 10px; margin-top:20px; font-size: 30px; font-family: 'Courier New', Courier, monospace; text-align: left;">It turns out your friend gets the same message. After intense thinking both of you decide to go there</p>
+    
+    <p style="margin-left: 10px; margin-top:20px; font-size: 30px; font-family: 'Courier New', Courier, monospace; text-align: left;">Its 4am and you have reached the cafe that was supposed to be a NDA hideout, to your surprise it was the same cafe your friend and you worked at.</p>
+    
+    <p style="margin-left: 10px; margin-top:20px; font-size: 30px; font-family: 'Courier New', Courier, monospace; text-align: left;">Suddenly you see a faint figure in the distance, you hesitantly move towards it.</p>
+    
+    <p style="margin-left: 10px; margin-top:20px; font-size: 30px; font-family: 'Courier New', Courier, monospace; text-align: left;">Then Suddenly!</p>
+    
+    <p style="margin-top:300px; margin-bottom:200px; color:rgb(200, 5, 5); font-size: 100px; font-family: 'Courier New', Courier, monospace; text-align: center;" class="glitch-text">TO BE CONTINUED...</p>   
+
+</body>
+</html>
