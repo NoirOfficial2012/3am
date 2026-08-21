@@ -1,2 +1,2 @@
 # 3am
-This is a story based game for the 3am ysws :)
+This is a story for the 3am ysws :)
